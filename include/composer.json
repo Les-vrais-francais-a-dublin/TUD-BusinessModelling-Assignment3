@@ -12,6 +12,8 @@
     "minimum-stability": "dev",
     "require": {
         "php": ">=8.0",
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.5",
         "stromfy/scar": "*",
         "stromfy/cruella": "*",
         "stromfy/nessos": "*",
