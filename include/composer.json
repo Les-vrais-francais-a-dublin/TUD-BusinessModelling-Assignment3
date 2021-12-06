@@ -1,0 +1,58 @@
+{
+    "name": "businessmodeling/assignement3",
+    "description": "Serveur principale epseed",
+    "type": "program",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "keke",
+            "email": "kelian.bailet@stromfy.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.0",
+        "stromfy/scar": "*",
+        "stromfy/cruella": "*",
+        "stromfy/nessos": "*",
+        "stromfy/enigma": "*",
+        "stromfy/ramsay": "*",
+        "stromfy/dolores": "*",
+        "stromfy/luthor": "*",
+        "stromfy/khan": "*"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "ssh://git@git.stromfy.com:222/STROMFY-CORP/SCAR.git"
+        },
+        {
+            "type": "vcs",
+            "url": "ssh://git@git.stromfy.com:222/STROMFY-CORP/CRUELLA.git"
+        },
+        {
+            "type": "vcs",
+            "url": "ssh://git@git.stromfy.com:222/STROMFY-CORP/NESSOS.git"
+        },
+        {
+            "type": "vcs",
+            "url": "ssh://git@git.stromfy.com:222/STROMFY-CORP/ENIGMA.git"
+        },
+        {
+            "type": "vcs",
+            "url": "ssh://git@git.stromfy.com:222/STROMFY-CORP/RAMSAY.git"
+        },
+        {
+            "type": "vcs",
+            "url": "ssh://git@git.stromfy.com:222/STROMFY-CORP/LUTHOR.git"
+        },
+        {
+            "type": "vcs",
+            "url": "ssh://git@git.stromfy.com:222/STROMFY-CORP/DOLORES.git"
+        },
+        {
+            "type": "vcs",
+            "url": "ssh://git@git.stromfy.com:222/STROMFY-CORP/KHAN.git"
+        }
+    ]
+}
