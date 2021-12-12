@@ -10,7 +10,7 @@ class Product
     private $_expiration_date;
     private $_price;
 
-public function __construct($name, $_ stock)
+
     public function __construct($name, $stock, $expiration_date, $price)
     {
         $this->_name = $name;
