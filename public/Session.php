@@ -7,6 +7,8 @@ use Slim\Psr7\Response;
 
 use Luthor\Response\HttpResponse;
 
+require_once __DIR__ . '/Action.php';
+
 class view_interface
 {
     private $_args;
@@ -75,7 +77,7 @@ function router(ServerRequestInterface $request, ResponseInterface $response, $f
     } else {
         $res = $interface->getResponse();
     }
-    $res_final = $res->getResponse($response);
+    $res_final = $res;
 
     return $res_final;
 }
