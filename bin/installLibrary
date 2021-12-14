@@ -1,3 +1,0 @@
-cd ../include/
-composer install
-composer update

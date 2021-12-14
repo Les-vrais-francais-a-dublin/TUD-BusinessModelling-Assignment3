@@ -14,5 +14,8 @@ $app = AppFactory::create();
 $app->get('/getStyle', function ($request, $response) {
     return (router($request, $response, "\Actions::getStyle"));
 });
+$app->get('/getHome', function ($request, $response) {
+    return (router($request, $response, "\Actions::getHome"));
+});
 
 $app->run();
