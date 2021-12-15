@@ -4,10 +4,18 @@
     <link rel="stylesheet" href="./style/correct-change.css" /> 
 
     <script type="text/javascript">
+        function clearChangeText()
+        {
+            document.getElementById("result").innerHTML = "";
+        }
+
         function calculateChange()
         {
-            var totalValue = document.form.totalValueInput.value;
-            var takenAmount = document.form.amountInput.value;
+            var totalValue = parseFloat(document.form.totalValueInput.value);
+            var takenAmount = parseFloat(document.form.amountInput.value); 
+
+            if (isNaN(totalValue) || isNaN(takenAmount))
+                return;
 
             if (takenAmount < totalValue)
             {
@@ -19,9 +27,33 @@
             }
             else
             {
-                var result = takenAmount - totalValue;
+                var notes = [100, 50, 20, 10, 5, 2, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01];
+                var counts = [0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0];
+                var label = [" note(s) of 100 euros", " note(s) of 50 euros", " note(s) of 20 euros", 
+                " note(s) of 10 euros", " note(s) of 5 euros", " coin(s) of 2 euros", " coin(s) of 1 euro", 
+                " coin(s) of 50 cents", " coin(s) of 20 cents", " coin(s) of 10 cents", " coin(s) of 5 cents", 
+                " coin(s) of 2 cents", " coin(s) of 1 cents"];
+
+                // Get taken amount
+                var total = (takenAmount - totalValue).toFixed(2);
+                result = total;
                 
-                document.getElementById("result").innerHTML = "You must give a change of " + result.toFixed(2) + " euros.";
+                // Calculate the right change
+                for (var i = 0; i < notes.length; i++) {
+                    var change = result % notes[i];
+                    counts[i] = ((result - change) / notes[i]).toFixed(2);
+                    result = change.toFixed(2);
+                }
+
+                // Build text displayed
+                var text = "You must give a total change of <b>" + total + " euros</b><br/>" +
+                "Here is the change details:<br/><br/>";
+                for (var i = 0; i < notes.length; i++) {
+                    if (counts[i] != 0) {
+                        text += "<b>" + Math.trunc(counts[i]) + "</b>" + label[i] + "<br/>";
+                    }
+                }
+                document.getElementById("result").innerHTML = text;
             }
         }
     </script>
@@ -47,7 +79,7 @@
                 </div>
                 <div class="row">
                     <input type="button" id="submit" value="Calculate" style="margin-left: 5px;" onclick="calculateChange()">
-                    <input type="reset" value="Clear">
+                    <input type="reset" value="Clear" onclick="clearChangeText()">
                 </div>
                 <div id="result"></div>
             </form>
