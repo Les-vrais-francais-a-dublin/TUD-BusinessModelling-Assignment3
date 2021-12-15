@@ -20,17 +20,19 @@ function productToHtml()
 {
     $pc = new ProductController();
 
-    // $obj_list = $pc->getProducts();
+    $obj_list = $pc->getProducts();
+    $html;
+    #echo var_dump($obj_list);
 
     /*
-    $product1 = new Product("Rings", "In stock", "15/12/2021", "50");
-    $product2 = new Product("Jewelry", "Out of stock", "31/06/2022", "50");
-    $product3 = new Product("Necklaces", "In stock", "21/08/2025", "50");
-    $product4 = new Product("Apple", "In stock", "24/02/2035", "30");
-    $product5 = new Product("Pear", "In stock", "24/03/2035", "30");
-    $product6 = new Product("Spoon", "In stock", "24/05/2035", "30");
-    $product7 = new Product("Candle", "Out of stock", "03/11/2022", "20");
-    $product8 = new Product("Perfume", "Out of stock", "23/11/2022", "20");
+    $product1 = new Product("Rings", "In stock", "15/12/2021", "50", "Luxury");
+    $product2 = new Product("Jewelry", "Out of stock", "31/06/2022", "50", "Luxury");
+    $product3 = new Product("Necklaces", "In stock", "21/08/2025", "50", "Luxury");
+    $product4 = new Product("Apple", "In stock", "24/02/2035", "30", "Essential");
+    $product5 = new Product("Pear", "In stock", "24/03/2035", "30", "Essential");
+    $product6 = new Product("Spoon", "In stock", "24/05/2035", "30", "Essential");
+    $product7 = new Product("Candle", "Out of stock", "03/11/2022", "20", "Gift");
+    $product8 = new Product("Perfume", "Out of stock", "23/11/2022", "20", "Gift");
     $pc = new ProductController();
     $pc->addProduct($product1);
     $pc->addProduct($product2);
@@ -40,15 +42,15 @@ function productToHtml()
     $pc->addProduct($product6);
     $pc->addProduct($product7);
     $pc->addProduct($product8);
-
+    */
     // $stor = new Storage("products");
     // $stor->setContent($product->getProduct());
     // $tmp = array($stor->getContent());
     // array_push($tmp, $product->getProduct());
     // $stor->setContent($tmp);
     // $stor->writeStorage();
-    */
-    return ("");
+    
+    return ("<div>BONJOUR</div> ");
 }
 function fillPage($body)
 {
