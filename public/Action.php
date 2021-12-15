@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . "/../src/function.php";
+
 use Slim\Psr7\Response;
 
 
@@ -15,6 +17,20 @@ class Actions
         $style = file_get_contents(__DIR__ . '/style/' . $name . '.css');
         return (getResponse(array('Content-Type' => 'application/json'), $style, 200));
     }
+
+    static public function getShoppingBasket($args)
+    {
+        $name = 'shopping';
+        
+        $keys = array(
+            '#script' => file_get_contents(__DIR__ . '/style/' . $name . '.js'),
+            '#style' => file_get_contents(__DIR__ . '/style/' . $name . '.css'),
+            '#product' => productToHtml()
+        );
+        $parsial_html = getHtml("shopping");
+        $html = parseHtml($parsial_html, $keys);
+        return (getResponse(array('Content-Type' => 'text/html'), $html, 200));
+    }
 }
 
 function getResponse($headers, $body, $status)
@@ -23,6 +39,6 @@ function getResponse($headers, $body, $status)
     $response->getBody()->write($body);
     return $response
         ->withStatus($status)
-        ->withHeader('Content-Type', 'text/plain')
+        ->withHeader('Content-Type', $headers["Content-Type"])
         ->withoutHeader("Content-Length");
 }
