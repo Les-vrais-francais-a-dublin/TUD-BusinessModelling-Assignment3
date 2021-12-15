@@ -90,9 +90,9 @@
             <legend><center><h2><b>Select Category</b></h2></center></legend><br>
             <!-- <label for="type_items">Select category:</label> -->
             <select onclick="display_vat(this)" name="type_items" id="type_items">
-                <option value="luxury">Luxury</option>
-                <option value="essential">Essential</option>
-                <option value="gift">Gift</option>
+                <option value="Luxury">Luxury</option>
+                <option value="Essential">Essential</option>
+                <option value="Gift">Gift</option>
             </select>
             <div id="vat">Display VAT</div>
         </div>
@@ -104,28 +104,35 @@
                 <input onclick="add_item('NAMEEssential', 'Essential', 'En stock', 5, 30, 10)" type="button" value="Add Essential"></input>
                 <input onclick="add_item('NAMEGift', 'Gift', 'En stock', 3, 20, 5)" type="button" value="Add Gift"></input>
             </div>
+
+            <div>
+                <input onclick="load_item_from_category('NAMELuxury', 'Luxury', 'En stock', 50, 20)" type="button" value="Add Luxury2"></input>
+                <input onclick="load_item_from_category('NAMEEssential', 'Essential', 'En stock', 30, 10)" type="button" value="Add Essential2"></input>
+                <input onclick="load_item_from_category('NAMEGift', 'Gift', 'En stock', 20, 5)" type="button" value="Add Gift2"></input>
+            </div>
             
             <!-- Form Name -->
             <legend><center><h2><b id="title_action">Action</b></h2></center></legend><br>
             
             <!-- Text input-->
             <div class="col-sm-12 col-md-10 col-md-offset-1">
-                <table id="shopping_basket" class="table table-hover">
+                <table id="all_product" class="table table-hover">
                     <thead>
                         <tr>
                             <th>Product</th>
                             <th>Quantity</th>
                             <th class="text-center">Price</th>
+                            <th class="text-center">VAT</th>
                             <th> </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- #product -->
+                        #product
                     </tbody>
                 </table>
             </div>     
         </div>
-    </div><!-- /.container -->
+    </div>
     
 </body>
 
