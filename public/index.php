@@ -17,5 +17,16 @@ $app->get('/getStyle', function ($request, $response) {
 $app->get('/getHome', function ($request, $response) {
     return (router($request, $response, "\Actions::getHome"));
 });
+$app->get('/getProductForm', function ($request, $response) {
+    return (router($request, $response, "\Actions::getProductForm"));
+});
+$app->get('/getProducts', function ($request, $response) {
+    return (router($request, $response, "\Actions::getProducts"));
+});
+$app->post('/getFormProductResponse', function ($request, $response) {
+    return (router($request, $response, "\Actions::getFormProductResponse"));
+});
+
+
 
 $app->run();

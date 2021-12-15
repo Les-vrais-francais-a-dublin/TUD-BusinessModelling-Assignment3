@@ -13,3 +13,10 @@ function getHtml($name)
     $html = file_get_contents(__DIR__ . '/../public/html/' . $name . '.html');
     return ($html);
 }
+
+function fillPage($body)
+{
+    $html = file_get_contents(__DIR__ . '/../public/html/template.html');
+    $html = str_replace("#body", $body, $html);
+    return ($html);
+}

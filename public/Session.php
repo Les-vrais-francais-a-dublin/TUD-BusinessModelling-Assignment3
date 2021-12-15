@@ -29,12 +29,19 @@ class view_interface
     {
         if (!$this->initQueryParams())
             return (new HttpResponse(array(), "Incorect params", 401));
+        if (!$this->initArgs())
+            return (new HttpResponse(array(), "Incorect params", 401));
         return (True);
     }
     // getting the query param of the request
     private function initQueryParams()
     {
         $this->_args["query_params"] = $this->_request->getQueryParams();
+        return (True);
+    }
+    private function initArgs()
+    {
+        $this->_args["params"] = $this->_request->getParsedBody();
         return (True);
     }
     // call the action
