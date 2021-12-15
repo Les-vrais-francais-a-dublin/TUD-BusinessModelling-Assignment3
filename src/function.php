@@ -50,3 +50,9 @@ function productToHtml()
     */
     return ("");
 }
+function fillPage($body)
+{
+    $html = file_get_contents(__DIR__ . '/../public/html/template.html');
+    $html = str_replace("#body", $body, $html);
+    return ($html);
+}
