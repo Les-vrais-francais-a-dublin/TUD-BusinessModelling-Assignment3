@@ -1,1 +1,58 @@
-[]
+[
+    {
+        "name":"Rings",
+        "stock":"In stock",
+        "expiration_date":"15\/12\/2021",
+        "type": "Luxury",
+        "price":"50"
+    },
+    {
+        "name":"Jewelry",
+        "stock":"Out of stock",
+        "expiration_date":"31\/06\/2022",
+        "type": "Luxury",
+        "price":"50"
+    },
+    {
+        "name":"Necklaces",
+        "stock":"In stock",
+        "expiration_date":"21\/08\/2025",
+        "type": "Luxury",
+        "price":"50"
+    },
+    {
+        "name":"Apple",
+        "stock":"In stock",
+        "expiration_date":"24\/02\/2035",
+        "type": "Essential",
+        "price":"30"
+    },
+    {
+        "name":"Pear",
+        "stock":"In stock",
+        "expiration_date":"24\/03\/2035",
+        "type": "Essential",
+        "price":"30"
+    },
+    {
+        "name":"Spoon",
+        "stock":"In stock",
+        "expiration_date":"24\/05\/2035",
+        "type": "Essential",
+        "price":"30"
+    },
+    {
+        "name":"Candle",
+        "stock":"Out of stock",
+        "expiration_date":"03\/11\/2022",
+        "type": "Gift",
+        "price":"20"
+    },
+    {
+        "name":"Perfume",
+        "stock":"Out of stock",
+        "expiration_date":"23\/11\/2022",
+        "type": "Gift",
+        "price":"20"
+    }
+]
