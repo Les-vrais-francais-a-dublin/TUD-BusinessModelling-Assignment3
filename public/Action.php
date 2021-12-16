@@ -56,9 +56,30 @@ class Actions
             '#style' => file_get_contents(__DIR__ . '/style/' . $name . '.css'),
             '#product' => productToHtml()
         );
-        $parsial_html = getHtml("shopping");
+        $parsial_html = getHtml($name);
         $html = parseHtml($parsial_html, $keys);
-        return (getResponse(array('Content-Type' => 'text/html'), $html, 200));
+
+        return (getResponse(array('Content-Type' => 'text/html'), fillPage($html), 200));
+    }
+
+    static public function getHome()
+    {
+        $html = getHtml("home");
+
+        return (getResponse(array('Content-Type' => 'text/html'), fillPage($html), 200));
+    }
+
+    static public function getChangeCalculator()
+    {
+        $name = 'correct-change';
+
+        $keys = array(
+            '#style' => file_get_contents(__DIR__ . '/style/' . $name . '.css')
+        );
+        $parsial_html = getHtml($name);
+        $html = parseHtml($parsial_html, $keys);
+
+        return (getResponse(array('Content-Type' => 'text/html'), fillPage($html), 200));
     }
 }
 
