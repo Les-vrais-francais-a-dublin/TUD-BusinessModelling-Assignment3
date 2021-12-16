@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <title>Group 11</title>
+    <link rel="stylesheet" href="./style/correct-change.css" /> 
+
+    <script type="text/javascript">
+        function clearChangeText()
+        {
+            document.getElementById("result").innerHTML = "";
+        }
+
+        function calculateChange()
+        {
+            var totalValue = parseFloat(document.form.totalValueInput.value);
+            var takenAmount = parseFloat(document.form.amountInput.value); 
+
+            if (isNaN(totalValue) || isNaN(takenAmount))
+                return;
+
+            if (takenAmount < totalValue)
+            {
+                document.getElementById("result").innerHTML = "There is not enough given money.";
+            }
+            else if (takenAmount == totalValue)
+            {
+                document.getElementById("result").innerHTML = "There is no change.";
+            }
+            else
+            {
+                var notes = [100, 50, 20, 10, 5, 2, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01];
+                var counts = [0, 0, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0];
+                var label = [" note(s) of 100 euros", " note(s) of 50 euros", " note(s) of 20 euros", 
+                " note(s) of 10 euros", " note(s) of 5 euros", " coin(s) of 2 euros", " coin(s) of 1 euro", 
+                " coin(s) of 50 cents", " coin(s) of 20 cents", " coin(s) of 10 cents", " coin(s) of 5 cents", 
+                " coin(s) of 2 cents", " coin(s) of 1 cents"];
+
+                // Get taken amount
+                var total = (takenAmount - totalValue).toFixed(2);
+                result = total;
+                
+                // Calculate the right change
+                for (var i = 0; i < notes.length; i++) {
+                    var change = result % notes[i];
+                    counts[i] = ((result - change) / notes[i]).toFixed(2);
+                    result = change.toFixed(2);
+                }
+
+                // Build text displayed
+                var text = "You must give a total change of <b>" + total + " euros</b><br/>" +
+                "Here is the change details:<br/><br/>";
+                for (var i = 0; i < notes.length; i++) {
+                    if (counts[i] != 0) {
+                        text += "<b>" + Math.trunc(counts[i]) + "</b>" + label[i] + "<br/>";
+                    }
+                }
+                document.getElementById("result").innerHTML = text;
+            }
+        }
+    </script>
+
+    <body>
+        <div class="container">
+            <form name="form">
+                <div class="row">
+                    <div class="col-25">
+                        <label for="fname">Shopping basket total value</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="number" step=".01" id="totalValueInput" placeholder="...">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="lname">Amount taken for payment</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="number" step=".01" id="amountInput" placeholder="...">
+                    </div>
+                </div>
+                <div class="row">
+                    <input type="button" id="submit" value="Calculate" style="margin-left: 5px;" onclick="calculateChange()">
+                    <input type="reset" value="Clear" onclick="clearChangeText()">
+                </div>
+                <div id="result"></div>
+            </form>
+            <div></div>
+        </div>   
+    </body>
+ </html>
