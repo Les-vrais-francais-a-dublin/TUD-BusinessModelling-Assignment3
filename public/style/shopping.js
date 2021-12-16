@@ -13,13 +13,15 @@ function display_vat(type) {
         disp.innerHTML = "VAT : 5%"
     }
 
-    for (var i = 10000; i < id_shoppable_product; i++) {
-        var row = document.getElementById(i)
-        if (document.getElementById(row.id + "_table_category").innerHTML == value)
-            row.style.display = ''
-        else
-            row.style.display = 'none'
-
+    table = document.getElementById("all_product")
+    for (var i = 0; i < table.rows.length; i++) {
+        if (table.rows.item(i).id != "") {
+            var row = document.getElementById(table.rows.item(i).id)
+            if (document.getElementById(row.id + "_table_category").innerHTML == value)
+                row.style.display = ''
+            else
+                row.style.display = 'none'
+        }
     }
 }
 
@@ -55,8 +57,10 @@ function add_item(name, category, stock, id_quantity, price, vat) {
     document.getElementById("shopping_basket").innerHTML = item + base
     id_product_table +=1
 
-    for (var i = 10000; i < id_shoppable_product; i++) {
-        document.getElementById(i).style.display = 'none'
+    table = document.getElementById("all_product")
+    for (var i = 0; i < table.rows.length; i++) {
+        if (table.rows.item(i).id != "")
+            document.getElementById(table.rows.item(i).id).style.display = 'none'
     }
 }
 
