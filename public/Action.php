@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . "/../src/function.php";
+
 use Slim\Psr7\Response;
 
 require_once(__DIR__ . "/../src/Products.php");
@@ -44,6 +46,19 @@ class Actions
         $product_engine = new ProductController();
         $product_engine->deleteProduct($product_name);
         return (Actions::getProducts($args));
+    }
+    static public function getShoppingBasket($args)
+    {
+        $name = 'shopping';
+
+        $keys = array(
+            '#script' => file_get_contents(__DIR__ . '/style/' . $name . '.js'),
+            '#style' => file_get_contents(__DIR__ . '/style/' . $name . '.css'),
+            '#product' => productToHtml()
+        );
+        $parsial_html = getHtml("shopping");
+        $html = parseHtml($parsial_html, $keys);
+        return (getResponse(array('Content-Type' => 'text/html'), $html, 200));
     }
 }
 

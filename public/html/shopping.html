@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Group 11</title>
+    <!-- icon ?-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+
+<style>
+    #style
+</style>
+
+<script>
+    #script    
+</script>
+
+<body>
+    
+    <header>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="customer.html">Customer</a></li>
+            <li><a href="supplier.html">Supplier</a></li>
+            <li><a href="stock.html">Stock</a></li>
+            <li><a href="orders.html">Orders</a></li>
+        </ul>
+    </header>
+    
+    
+    
+    
+    <div class="container">
+        <br><br><br>
+        
+        <div class="well form-horizontal">
+            
+            <!-- Form Name -->
+            <legend><center><h2><b>Shopping basket</b></h2></center></legend><br>
+            
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-10 col-md-offset-1">
+                        <table id="shopping_basket" class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th class="text-center">Price</th>
+                                    <th class="text-center">VAT</th>
+                                    <th class="text-center">Total</th>
+                                    <th> </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>   </td>
+                                    <td>   </td>
+                                    <td>   </td>
+                                    <td><h3>Total</h3> <h5>(including all taxes)</h5></td>
+                                    <td class="text-right"><h3><span id="shopping_basket_total"></span>€</h3></td>
+                                </tr>
+                                <tr>
+                                    <td>   </td>
+                                    <td>   </td>
+                                    <td>   </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success" onclick="calculate_price()">
+                                            Calculate price <span class="glyphicon glyphicon-play"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="well form-horizontal">
+            <legend><center><h2><b>Select Category</b></h2></center></legend><br>
+            <!-- <label for="type_items">Select category:</label> -->
+            <select onclick="display_vat(this)" name="type_items" id="type_items">
+                <option value="Luxury">Luxury</option>
+                <option value="Essential">Essential</option>
+                <option value="Gift">Gift</option>
+            </select>
+            <div id="vat">Display VAT</div>
+        </div>
+        
+        <div class="well form-horizontal">
+            
+            <div>
+                <input onclick="add_item('NAMELuxury', 'Luxury', 'En stock', 1, 50, 20)" type="button" value="Add Luxury"></input>
+                <input onclick="add_item('NAMEEssential', 'Essential', 'En stock', 5, 30, 10)" type="button" value="Add Essential"></input>
+                <input onclick="add_item('NAMEGift', 'Gift', 'En stock', 3, 20, 5)" type="button" value="Add Gift"></input>
+            </div>
+
+            <div>
+                <input onclick="load_item_from_category('NAMELuxury', 'Luxury', 'En stock', 50, 20)" type="button" value="Add Luxury2"></input>
+                <input onclick="load_item_from_category('NAMEEssential', 'Essential', 'En stock', 30, 10)" type="button" value="Add Essential2"></input>
+                <input onclick="load_item_from_category('NAMEGift', 'Gift', 'En stock', 20, 5)" type="button" value="Add Gift2"></input>
+            </div>
+            
+            <!-- Form Name -->
+            <legend><center><h2><b id="title_action">Action</b></h2></center></legend><br>
+            
+            <!-- Text input-->
+            <div class="col-sm-12 col-md-10 col-md-offset-1">
+                <table id="all_product" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th class="text-center">Price</th>
+                            <th class="text-center">VAT</th>
+                            <th> </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        #product
+                    </tbody>
+                </table>
+            </div>     
+        </div>
+    </div>
+    
+</body>
+
+</html>

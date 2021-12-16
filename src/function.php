@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . "/Products.php";
+
 function parseHtml($content, array $replace)
 {
     foreach ($replace as $key => $value) {
@@ -14,6 +16,42 @@ function getHtml($name)
     return ($html);
 }
 
+function productToHtml()
+{
+    $pc = new ProductController();
+
+    $obj_list = $pc->getProducts();
+    $html;
+    #echo var_dump($obj_list);
+
+    /*
+    $product1 = new Product("Rings", "In stock", "15/12/2021", "50", "Luxury");
+    $product2 = new Product("Jewelry", "Out of stock", "31/06/2022", "50", "Luxury");
+    $product3 = new Product("Necklaces", "In stock", "21/08/2025", "50", "Luxury");
+    $product4 = new Product("Apple", "In stock", "24/02/2035", "30", "Essential");
+    $product5 = new Product("Pear", "In stock", "24/03/2035", "30", "Essential");
+    $product6 = new Product("Spoon", "In stock", "24/05/2035", "30", "Essential");
+    $product7 = new Product("Candle", "Out of stock", "03/11/2022", "20", "Gift");
+    $product8 = new Product("Perfume", "Out of stock", "23/11/2022", "20", "Gift");
+    $pc = new ProductController();
+    $pc->addProduct($product1);
+    $pc->addProduct($product2);
+    $pc->addProduct($product3);
+    $pc->addProduct($product4);
+    $pc->addProduct($product5);
+    $pc->addProduct($product6);
+    $pc->addProduct($product7);
+    $pc->addProduct($product8);
+    */
+    // $stor = new Storage("products");
+    // $stor->setContent($product->getProduct());
+    // $tmp = array($stor->getContent());
+    // array_push($tmp, $product->getProduct());
+    // $stor->setContent($tmp);
+    // $stor->writeStorage();
+    
+    return ("<div>BONJOUR</div> ");
+}
 function fillPage($body)
 {
     $html = file_get_contents(__DIR__ . '/../public/html/template.html');
