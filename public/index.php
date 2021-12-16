@@ -23,6 +23,9 @@ $app->get('/getProductForm', function ($request, $response) {
 $app->get('/getProducts', function ($request, $response) {
     return (router($request, $response, "\Actions::getProducts"));
 });
+$app->get('/deleteProduct', function ($request, $response) {
+    return (router($request, $response, "\Actions::deleteProduct"));
+});
 $app->post('/getFormProductResponse', function ($request, $response) {
     return (router($request, $response, "\Actions::getFormProductResponse"));
 });

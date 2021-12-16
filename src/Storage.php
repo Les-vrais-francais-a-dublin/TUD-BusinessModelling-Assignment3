@@ -12,7 +12,7 @@ class Storage
     public function readStorage()
     {
         try {
-            $this->_content = json_decode(file_get_contents(__DIR__ . "/../storage/" . $this->_storage_name . ".stor"));
+            $this->_content = json_decode(file_get_contents(__DIR__ . "/../storage/" . $this->_storage_name . ".stor", true));
         } catch (\Throwable $th) {
             $this->_content = array();
         }

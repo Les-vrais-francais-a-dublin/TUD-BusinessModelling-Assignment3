@@ -12,12 +12,23 @@ class Product
     private $_type;
 
 
-    public function __construct($name, $stock, $expiration_date, $price, $type)
+    public function __construct($name, $stock, $expiration_date, $type)
     {
         $this->_name = $name;
         $this->_stock = $stock;
         $this->_expiration_date = $expiration_date;
-        $this->_price = $price;
+        switch ($type) {
+            case 'Luxury':
+                $this->_price = 50;
+                break;
+            case 'Essential':
+                $this->_price = 30;
+                break;
+            case 'Gift':
+                $this->_price = 20;
+                break;
+        }
+        print_r($type);
         $this->_type = $type;
     }
     public function getProduct()
@@ -88,7 +99,7 @@ class ProductController
         $obj_list = array();
         $product_list = $this->_storage->getContent();
         foreach ($product_list as $product_getted) {
-            $product = new Product($product_getted->name, $product_getted->stock, $product_getted->expiration_date, $product_getted->price, $product_getted->type);
+            $product = new Product($product_getted->name, $product_getted->stock, $product_getted->expiration_date, $product_getted->type);
             array_push($obj_list, $product);
         }
         return ($obj_list);
@@ -97,7 +108,7 @@ class ProductController
     {
         $product_list = $this->_storage->getContent();
         foreach ($product_list as $key => $product_getted) {
-            if ($product_getted['name'] == $product_name) {
+            if ($product_getted->name == $product_name) {
                 unset($product_list[$key]);
             }
         }
@@ -128,8 +139,7 @@ class ProductController
         array_push($response, '<div class="product-info smart-form">');
         array_push($response, '<div class="row">');
         array_push($response, '<div class="col-md-12">');
-        array_push($response, '<a href="#" class="btn btn-danger">Add to cart</a>');
-        array_push($response, '<a href="#" class="btn btn-danger">Delete product</a>');
+        array_push($response, '<a href="http://127.0.0.1/deleteProduct?product_name=' . $product->getName() . '" class="btn btn-danger">Delete product</a>');
         array_push($response, '</div></div></div></div></div></div>');
 
         return (implode("\n", $response));
@@ -140,7 +150,6 @@ class ProductController
         array_push($response, '<link href="http://127.0.0.1/getStyle?name=product" rel="stylesheet">');
         array_push($response, '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">');
         array_push($response, '<div class="containermain">');
-        // array_push($response, '<div class="col-xs-12 col-md-6">');
         foreach ($products as $product) {
             array_push($response, $this->displayProduct($product));
         }

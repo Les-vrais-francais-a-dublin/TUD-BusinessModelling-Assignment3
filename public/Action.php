@@ -25,7 +25,7 @@ class Actions
     }
     static public function getFormProductResponse($args)
     {
-        $product = new Product($args["params"]["name"], $args["params"]["stock"], $args["params"]["expiration_date"], $args["params"]["price"], $args["params"]["type"]);
+        $product = new Product($args["params"]["name"], $args["params"]["stock"], $args["params"]["expiration_date"], $args["params"]["type"]);
         $product_engine = new ProductController();
         $product_engine->addProduct($product);
         return (Actions::getProductForm($args));
@@ -37,6 +37,13 @@ class Actions
         $products_list = $product_engine->displayProducts($products);
         $html = fillPage($products_list);
         return (getResponse('text/html',  $html, 200));
+    }
+    static public function deleteProduct($args)
+    {
+        $product_name = $args["query_params"]["product_name"];
+        $product_engine = new ProductController();
+        $product_engine->deleteProduct($product_name);
+        return (Actions::getProducts($args));
     }
 }
 
